@@ -1,0 +1,27 @@
+
+[
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@test.com",
+      "password": "123456789",
+      "role": "admin",
+      "createdAt": "2023-08-20"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "email": "user@example.com",
+      "password": "123456789",
+      "role": "user",
+      "createdAt": "2023-08-20"
+    },
+    {
+      "id": 3,
+      "username": "client1",
+      "email": "client@example.com",
+      "password": "123456789",
+      "role": "client",
+      "createdAt": "2023-08-20"
+    }
+  ]

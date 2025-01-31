@@ -1,60 +1,29 @@
-import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { useEffect } from 'react';
+import { Box, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import LoginForm from '../features/auth/components/LoginForm';
+import { RootState } from '../app/store';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { user } = useSelector((state: RootState) => state.auth);
 
-  const handleLogin = async () => {
-    // Envoyer les données de connexion au backend
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        navigate('/home'); // Redirige vers la page d'accueil après la connexion
-      } else {
-        alert('Identifiants incorrects');
-      }
-    } catch (error) {
-      console.error('Erreur de connexion:', error);
+  // 🔹 Redirige vers le tableau de bord si l'utilisateur est déjà connecté
+  useEffect(() => {
+    if (user) {
+      navigate('/'); // Change '/dashboard' selon ta route cible
     }
-  };
+  }, [user, navigate]);
 
   return (
-    <Container maxWidth="xs" sx={{ mt: 5 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: 3, p: 3, borderRadius: 2 }}>
-        <Typography variant="h5" gutterBottom>
-          Connexion
-        </Typography>
-        <TextField
-          label="Email"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          label="Mot de passe"
-          variant="outlined"
-          type="password"
-          fullWidth
-          margin="normal"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }} onClick={handleLogin}>
-          Se connecter
-        </Button>
-      </Box>
-    </Container>
+    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Connexion
+      </Typography>
+      <LoginForm />
+    </Box>
   );
 };
 
-export default LoginPage
+export default LoginPage;
