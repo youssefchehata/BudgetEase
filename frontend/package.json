@@ -5,10 +5,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "tsc --noEmit || true && vite build || true",
-    "lint": "eslint . --max-warnings=0 || true",
+    "build": "tsc --noEmit && vite build",  
+    "lint": "eslint . --max-warnings=0",
     "preview": "vite preview"
   },
   "dependencies": {
