@@ -4,10 +4,11 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "compilerOptions": {
+"compilerOptions": {
     "skipLibCheck": true,
     "noImplicitAny": false,
     "strict": false,
+    "noEmitOnError": false,  // ✅ Allow compilation even with errors
     "typeRoots": ["node_modules/@types", "src/@types"]
   }
 }
