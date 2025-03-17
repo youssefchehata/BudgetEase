@@ -7,7 +7,7 @@
 "scripts": { 
   "deploy": "gh-pages -d build",
   "dev": "vite",
-  "build": "tsc -b || true && vite build || true",
+  "build": "tsc --noEmit || true && vite build || true",
   "lint": "eslint . --max-warnings=0 || true",
   "preview": "vite preview"
 },
