@@ -33,28 +33,134 @@ L’objectif est de fournir aux utilisateurs une plateforme intuitive pour suivr
 
 ## 2. Backlog Produit Priorisé (Structure Agile en 5 Sprints de 3 Semaines)
 
-Le backlog est organisé en **user stories détaillées** avec une estimation en story points (1, 2, 3, 5, 8) et réparti sur 5 sprints pour le MVP, avec des fonctionnalités évolutives pour les sprints ultérieurs.
+Backlog Produit BudgetEase
+Epic 1 : Suivi Financier et Gestion de Profil
+Objectif :
+Permettre aux utilisateurs (collaborateurs, administrateurs et consultants) de s’authentifier, de gérer leur profil et d’enregistrer l’ensemble de leurs transactions financières dans un environnement sécurisé.
 
-### Tableau du Backlog
+US1-1 : Authentification et Gestion de Profil
+Rôle : Utilisateur standard
+Description :
+En tant qu’utilisateur, je souhaite m’inscrire, me connecter et gérer mon profil de manière sécurisée afin de protéger mes données personnelles et accéder à mes informations financières.
+Priorité : Élevée
+Critères d’acceptation :
+L’interface d’inscription et de connexion est claire et accessible.
+Les informations sensibles (mots de passe, données personnelles) sont chiffrées.
+La récupération de mot de passe est disponible.
+Option d’authentification à deux facteurs pour renforcer la sécurité.
+Tâches :
+Conception UI/UX : Créer les maquettes pour les pages d’inscription, connexion et gestion de profil.
+Développement API : Implémenter l’API d’authentification avec chiffrement.
+Mécanisme de récupération : Développer la fonctionnalité de récupération de mot de passe.
+2FA : Intégrer et tester l’authentification à deux facteurs.
+US1-2 : Gestion des Transactions Financières
+Rôle : Utilisateur standard
+Description :
+En tant qu’utilisateur, je souhaite ajouter, modifier et supprimer mes transactions (revenus/dépenses) pour suivre précisément l’évolution de mon budget.
+Priorité : Élevée
+Critères d’acceptation :
+Possibilité d’enregistrer une transaction avec les champs : date, montant, catégorie et description.
+Opérations CRUD (Create, Read, Update, Delete) fonctionnelles sur chaque transaction.
+Système de catégorisation automatique basé sur des règles préétablies.
+Mise à jour instantanée des données dans le tableau de bord.
+Tâches :
+Formulaire transaction : Concevoir et développer l’interface de saisie.
+Backend CRUD : Implémenter les opérations CRUD pour les transactions.
+Algorithme de catégorisation : Développer et intégrer l’algorithme d’affectation automatique des catégories.
+Tests fonctionnels : Valider l’ensemble du processus par des tests unitaires et d’intégration.
+Epic 2 : Analyse et Visualisation des Données Financières
+Objectif :
+Offrir une vue globale et interactive des finances de l’utilisateur grâce à des tableaux de bord et des visualisations dynamiques.
 
-| Sprint | User Story                                                                                                                                     | Priorité    | Story Points | Statut  |
-|--------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------|--------------|---------|
-| 1      | **En tant qu'utilisateur, je souhaite m'inscrire et me connecter** afin d'accéder à l'application.                                             | Must Have   | 5            | À faire |
-| 1      | **En tant qu'utilisateur, je veux consulter mon profil** pour visualiser mes informations personnelles.                                         | Must Have   | 3            | À faire |
-| 1      | **En tant qu'administrateur, je veux gérer les rôles (admin, user, consultant)** pour attribuer des permissions spécifiques.                      | Must Have   | 8            | À faire |
-| 2      | **En tant qu'utilisateur, je veux ajouter une transaction** (revenus/dépenses) afin de suivre mes flux financiers.                               | Must Have   | 5            | À faire |
-| 2      | **En tant qu'utilisateur, je veux voir la liste de mes transactions** pour avoir un historique détaillé.                                         | Must Have   | 3            | À faire |
-| 2      | **En tant qu'utilisateur, je veux catégoriser mes transactions** automatiquement ou manuellement pour une meilleure analyse.                     | Must Have   | 5            | À faire |
-| 3      | **En tant qu'utilisateur, je veux visualiser un tableau de bord analytique** présentant mon solde, mes revenus et mes dépenses sous forme de graphiques. | Must Have   | 8            | À faire |
-| 3      | **En tant qu'utilisateur, je veux exporter des rapports personnalisés** afin de partager mes données financières.                                 | Should Have | 5            | À faire |
-| 4      | **En tant qu'utilisateur, je veux définir des objectifs budgétaires** pour mieux contrôler mes dépenses.                                         | Should Have | 5            | À faire |
-| 4      | **En tant qu'administrateur, je veux gérer les utilisateurs** (ajout, modification, suppression) pour maintenir la base de données à jour.         | Must Have   | 8            | À faire |
-| 5      | **En tant qu'utilisateur, je veux recevoir des notifications ou alertes** lorsque je dépasse mon budget.                                          | Should Have | 3            | À faire |
-| 5      | **(Sprint Futur)** **En tant qu'utilisateur, je veux intégrer des API bancaires** pour importer automatiquement mes transactions.                | Could Have  | 8            | Backlog |
-| 5      | **(Sprint Futur)** **En tant qu'utilisateur, je veux des recommandations basées sur l'IA** pour optimiser mes finances.                           | Could Have  | 8            | Backlog |
+US2-1 : Tableau de Bord Interactif
+Rôle : Utilisateur standard
+Description :
+En tant qu’utilisateur, je souhaite consulter un tableau de bord intuitif affichant des indicateurs clés et des graphiques interactifs afin d’avoir une vision synthétique de ma situation financière.
+Priorité : Élevée
+Critères d’acceptation :
+Affichage des indicateurs essentiels : revenus totaux, dépenses totales, solde.
+Graphiques interactifs permettant le filtrage par dates et catégories.
+Actualisation en temps réel suite aux modifications des transactions.
+Interface simple et adaptée aux utilisateurs non-techniciens.
+Tâches :
+Design UI/UX : Réaliser les maquettes du tableau de bord.
+Intégration graphique : Sélectionner et intégrer une librairie de graphiques (ex. Chart.js ou D3.js).
+Fonctionnalité de filtre : Développer le système de filtrage des données.
+Tests d’usabilité : Organiser des sessions de test pour garantir la simplicité d’utilisation.
+US2-2 : Budgétisation Avancée et Suivi d’Objectifs
+Rôle : Utilisateur standard
+Description :
+En tant qu’utilisateur, je souhaite définir des objectifs budgétaires et suivre leur progression afin de mieux contrôler mes dépenses et mon épargne.
+Priorité : Moyenne
+Critères d’acceptation :
+Possibilité de créer des objectifs avec un montant cible et une période définie.
+Visualisation d’un indicateur de progression pour chaque objectif.
+Notifications en cas de dépassement ou d’approche des limites définies.
+Intégration cohérente des objectifs avec le reste des transactions.
+Tâches :
+Interface objectifs : Concevoir l’interface de création et de suivi des objectifs.
+Logique de calcul : Développer la logique pour le calcul de la progression.
+Système de notifications : Mettre en place des notifications (email et in-app).
+Tests d’intégration : Vérifier la cohérence avec les données des transactions.
+Epic 3 : Génération de Rapports et Export
+Objectif :
+Permettre aux utilisateurs, notamment les consultants et clients, de générer et exporter des rapports personnalisés pour une analyse détaillée de leurs finances.
 
-> **Remarque :** Les user stories avec la mention "(Sprint Futur)" sont des fonctionnalités avancées prévues après le MVP.
+US3-1 : Génération et Export de Rapports
+Rôle : Consultant / Client
+Description :
+En tant que consultant ou client, je souhaite générer des rapports détaillés et les exporter (PDF, CSV) afin d’analyser mes données financières sur une période définie.
+Priorité : Moyenne
+Critères d’acceptation :
+Possibilité de sélectionner une plage de dates et des filtres (catégories, type de transaction).
+Rapport reflétant fidèlement les données saisies.
+Formats d’export disponibles : PDF et CSV, avec un formatage conforme aux besoins.
+Option de téléchargement direct ou d’envoi par email.
+Tâches :
+Interface rapport : Concevoir l’interface de configuration des rapports.
+Développement export : Implémenter les fonctionnalités d’export en PDF et CSV.
+Intégration filtres : Développer la logique de sélection de plage et de filtres.
+Tests de qualité : Vérifier l’exactitude et la mise en forme des rapports.
+Epic 4 : Administration et Gestion des Utilisateurs
+Objectif :
+Offrir aux administrateurs une interface dédiée pour la gestion des profils et des permissions, garantissant ainsi la sécurité et la traçabilité des actions.
 
+US4-1 : Administration et Gestion des Utilisateurs
+Rôle : Administrateur
+Description :
+En tant qu’administrateur, je souhaite gérer les profils utilisateurs et attribuer des permissions spécifiques afin d’assurer la sécurité de l’application et la conformité aux politiques internes.
+Priorité : Moyenne
+Critères d’acceptation :
+Visualisation complète des profils utilisateurs et de leurs statuts.
+Possibilité d’attribuer et de révoquer des rôles et permissions (ex. accès aux rapports, modification des données).
+Enregistrement des actions administratives dans des logs d’audit pour garantir la traçabilité.
+Interface admin intuitive et sécurisée.
+Tâches :
+Conception interface admin : Créer les maquettes pour la gestion des utilisateurs.
+Gestion rôles/permissions : Implémenter le système de rôles et permissions.
+Mécanisme de logs : Développer la fonctionnalité de logs d’audit.
+Tests de sécurité : Effectuer des tests pour valider l’accès et la sécurité de l’interface.
+Epic 5 : Préparation à l’Évolutivité et Intégrations Futures
+Objectif :
+Concevoir une architecture modulaire permettant l’ajout futur d’API bancaires et de fonctionnalités d’intelligence artificielle pour des recommandations personnalisées.
+
+US5-1 : Préparation à l’Évolutivité
+Rôle : Product Owner / Développeur
+Description :
+En tant que product owner, je souhaite que l’architecture de l’application soit modulaire et prête pour des intégrations futures (API bancaires, IA) afin de supporter une montée en charge et d’enrichir les fonctionnalités.
+Priorité : Moyenne
+Critères d’acceptation :
+Architecture modulaire avec des API claires et documentées.
+Documentation technique complète pour faciliter les intégrations futures.
+Mise en place de endpoints "stub" pour l’API bancaire et l’IA.
+Scalabilité prouvée par des tests de charge et de résilience.
+Tâches :
+Analyse architecturale : Réaliser un audit de l’architecture existante et proposer des améliorations modulaires.
+Endpoints futurs : Développer des endpoints stubs pour préparer les intégrations.
+Documentation technique : Rédiger une documentation détaillée destinée aux développeurs externes.
+Tests de scalabilité : Effectuer des tests de charge pour garantir la résilience du système.
+
+-----------------------------------------------------------------------------------------
 
 ---
 
