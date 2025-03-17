@@ -18,18 +18,20 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    # Setup Node.js environment
+    # Setup Node.js environment with proper cache directory
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json # Ensure it caches from the correct directory
 
-    # Install dependencies and build frontend
+    # Install dependencies inside frontend/
     - name: Install frontend dependencies
       working-directory: ./frontend
       run: npm ci
 
+    # Build frontend
     - name: Build frontend
       working-directory: ./frontend
       run: npm run build --if-present
