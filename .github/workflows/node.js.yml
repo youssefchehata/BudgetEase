@@ -15,7 +15,8 @@ jobs:
         node-version: [22.14.0]
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -25,15 +26,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm ci
+        npm ci # This uses package-lock.json to install exact versions
         npm install --save-dev typescript @types/react-window
-
-    - name: Check TypeScript version
-      run: tsc --version
-
-    - name: Run TypeScript build (without failing on errors)
-      run: |
-        tsc --noEmit || true
 
     - name: Build frontend (vite)
       run: npm run build
