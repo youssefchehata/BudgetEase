@@ -26,17 +26,17 @@ jobs:
 
     - name: Install dependencies (Frontend)
       run: |
-        cd frontend  # Navigate into the frontend folder where package-lock.json is located
-        npm ci       # Install dependencies using the package-lock.json in the frontend folder
+        cd frontend  # Navigate to the frontend directory
+        npm ci       # Install dependencies using the package-lock.json located in the frontend directory
 
     - name: Build frontend (Vite)
       run: |
-        cd frontend  # Navigate into the frontend folder again before building
-        npm run build # Run build command for the frontend
+        cd frontend  # Navigate to the frontend directory again
+        npm run build # Run the build command for frontend app
 
     - name: Deploy with gh-pages
       run: |
-        cd frontend  # Ensure we're still in the frontend directory before deployment
+        cd frontend  # Ensure we're in the frontend directory
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
       env:
